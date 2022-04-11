@@ -1,13 +1,16 @@
-from brownie import accounts, config, Charity
+from brownie import accounts, config, Charity, network
 import time
 
 
+def get_account():
+    if network.show_active() == "development":
+        return accounts[0]
+    else:
+        return accounts.add(config["wallets"]["private_key"])
+
+
 def deploy_simpleCharity():
-    chain = "ganache"
-    if chain == "ganache":
-        account = accounts[0]
-    elif chain == "ropsten":
-        account = accounts.add(config["wallets"]["private_key"])
+    account = get_account()
 
     charity_contract = Charity.deploy({"from": account})
     time.sleep(1)
