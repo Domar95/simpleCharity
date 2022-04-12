@@ -1,5 +1,6 @@
 from brownie import accounts, config, Charity, network
 import time
+import os, shutil
 
 
 def get_account():
@@ -14,13 +15,18 @@ def deploy_simpleCharity():
 
     charity_contract = Charity.deploy({"from": account})
     time.sleep(1)
-    charity_donate = charity_contract.donate(
-        "test donation", {"from": account, "amount": 100000}
-    )
-    time.sleep(1)
-    print(charity_donate)
-    get_balance = charity_contract.getBalance()
-    print(get_balance)
+    return charity_contract
+
+
+def update_front_end():
+    copy_folder_to_front_end("./build", "./simple_charity_react/src/chain-info")
+
+
+def copy_folder_to_front_end(source, destination):
+    # sending build folder with contract address
+    if os.path.exists(destination):
+        shutil.rmtree(destination)
+    shutil.copytree(source, destination)
 
 
 def main():
