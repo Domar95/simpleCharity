@@ -1,8 +1,8 @@
-import React from 'react';
 import { DAppProvider, ChainId } from "@usedapp/core"
 import { Header } from "./components/Header"
 import { Container } from "@material-ui/core"
 import { Main } from "./components/Main"
+import { Balance } from "./components/UserBalance"
 
 function App() {
   return (
@@ -12,6 +12,7 @@ function App() {
       <Container maxWidth="md">
         <div> Simple Charity App</div>
         <Main />
+        <Balance />
       </Container>
 
     </DAppProvider>

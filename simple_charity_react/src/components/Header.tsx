@@ -16,7 +16,6 @@ const useStyles = makeStyles((my_theme) => ({
 export const Header = () => {
     const classes = useStyles()
     const { account, activateBrowserWallet, deactivate } = useEthers()
-
     const isConnected = account !== undefined
 
     return (
