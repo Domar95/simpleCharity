@@ -1,9 +1,17 @@
-import { formatEther } from '@ethersproject/units'
-import { useEthers, useEtherBalance } from "@usedapp/core"
+// UserBalance.tsx
+import { useBalance } from 'wagmi'
 
-export const Balance = () => {
-    const { account, chainId } = useEthers()
-    const etherBalance = useEtherBalance(account, { chainId })
+export const UserBalance = () => {
+    const [{ data, error, loading }] = useBalance({
+        addressOrName: '0xE73CF47783d04E5f92C6706EeE304742E0FF7D31',
+    })
 
-    return <div> {chainId} / {account} / {etherBalance && etherBalance ? formatEther(etherBalance) : "no Balance found"} </div>
+
+    if (loading) return <div>Fetching balance…</div>
+    if (error) return <div>Error fetching balance </div>
+    return (
+        <div>
+            {data?.formatted} {data?.symbol}
+        </div>
+    )
 }

@@ -1,21 +1,25 @@
-import { DAppProvider, ChainId } from "@usedapp/core"
 import { Header } from "./components/Header"
 import { Container } from "@material-ui/core"
 import { Main } from "./components/Main"
-import { Balance } from "./components/UserBalance"
+import { Provider } from 'wagmi'
+import { Connectors } from "./components/Connectors"
+import { UserBalance } from "./components/UserBalance"
+import { Network } from "./components/Network"
 
 function App() {
   return (
-    <DAppProvider config={{ supportedChains: [ChainId.Ropsten] }}>
+    <Provider connectors={Connectors}>
       <Header />
 
       <Container maxWidth="md">
         <div> Simple Charity App</div>
         <Main />
-        <Balance />
+        <UserBalance />
+        <Network />
+
       </Container>
 
-    </DAppProvider>
+    </Provider>
   );
 }
 
