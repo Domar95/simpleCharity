@@ -5,5 +5,5 @@ export const Main = () => {
 
     const contractAddress = networkMapping["3"]["Charity"][0]
 
-    return (<div>Contract address: {contractAddress}</div>)
+    return (<p>Contract address: {contractAddress}</p>)
 }

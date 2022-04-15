@@ -16,7 +16,6 @@ export const WalletConnectButton = () => {
                 onClick={disconnect}>
                 Disconnect from {connectData?.connector?.name}
             </Button>
-            <p>{accountData?.address}</p>
         </div>)
     }
 
@@ -29,7 +28,7 @@ export const WalletConnectButton = () => {
                     onClick={() => connect(connector)}
                 >
                     {connector.name}
-                    {!connector.ready && ' (unsupported)'}
+                    {!connector.ready && '(unsupported)'}
                 </Button>
             ))}
             {connectError && <div>{connectError?.message ?? 'Failed to connect'}</div>}
