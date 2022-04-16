@@ -3,5 +3,5 @@ import { providers } from 'ethers'
 
 const infuraId = process.env.REACT_APP_INFURA_ID
 
-export const _Provider = ({ chainId }: { chainId?: number }) =>
-  new providers.InfuraProvider(chainId, infuraId)
+export const _Provider = () =>
+  new providers.InfuraProvider(3, infuraId)
