@@ -7,6 +7,7 @@ import { Connectors } from "./components/Connectors"
 import { UserBalance } from "./components/UserBalance"
 import { Network } from "./components/Network"
 import { _Provider } from './components/_Provider'
+import { ReadContract } from './components/ReadContract'
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
         <ContractBalance />
         <UserBalance />
         <Network />
+        <ReadContract />
 
       </Container>
 

@@ -2,9 +2,10 @@
 import { useBalance } from 'wagmi'
 import networkMapping from "../chain-info/deployments/map.json"
 
+export const contractAddress = networkMapping["3"]["Charity"][0]
 
 export const ContractBalance = () => {
-    const contractAddress = networkMapping["3"]["Charity"][0]
+
 
     const [{ data, error, loading }] = useBalance({
         addressOrName: (contractAddress),
