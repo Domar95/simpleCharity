@@ -13,11 +13,10 @@ export const ReadContract = () => {
         'getBalance',
     )
 
-    console.log(data)
+    const readContractBalance = data?.toNumber()
 
     return (
         <div>
-            <p>data type: {typeof (data)}</p>
+            <p>Total balance (read with getBalance func): {readContractBalance} Wei</p>
         </div>)
 }
-
