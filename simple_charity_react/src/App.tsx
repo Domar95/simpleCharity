@@ -8,6 +8,9 @@ import { UserBalance } from "./components/UserBalance"
 import { Network } from "./components/Network"
 import { _Provider } from './components/_Provider'
 import { ReadContract } from './components/ReadContract'
+import { Donate } from './components/Donate/Donate'
+import { DonateForm } from "./components/Donate/DonateForm"
+import { DonateState } from "./components/Donate/DonateState"
 
 function App() {
   return (
@@ -20,6 +23,7 @@ function App() {
         <UserBalance />
         <Network />
         <ReadContract />
+        <DonateState />
 
       </Container>
 
