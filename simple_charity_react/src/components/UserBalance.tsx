@@ -1,5 +1,6 @@
 // UserBalance.tsx
 import { useAccount, useBalance } from 'wagmi'
+import { ReadAmountDonatedByAddress } from './ReadAmountDonatedByAddress/ReadAmountDonatedByAddress'
 
 export const UserBalance = () => {
     const [{ data: accountData }] = useAccount()
