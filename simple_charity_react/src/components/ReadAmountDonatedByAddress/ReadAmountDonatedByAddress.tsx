@@ -1,34 +1,60 @@
 // ReadAmountDonatedByAddress.tsx
 import charityABI from "../../chain-info/contracts/Charity.json"
+import { useState } from 'react'
+import { ReadAmountDonatedByAddressForm } from "./ReadAmountDonatedByAddressForm";
 import { contractAddress } from '../ContractBalance'
 import { useContractRead } from 'wagmi'
 import { utils } from "ethers"
-import { useAccount } from 'wagmi'
+import { Button } from "@material-ui/core"
 
-export const ReadAmountDonatedByAddress = ({ userAddress }: any) => {
+export const ReadAmountDonatedByAddress = () => {
+    const [address, setAddress] = useState()
 
-    const [{ data: accountData }] = useAccount()
-    const loggedAddress = accountData?.address
+    const [amount, setAmount] = useState()
 
     const { abi } = charityABI
-    const [{ data }] = useContractRead(
+    const [{ data, loading, error }, read] = useContractRead(
         {
             addressOrName: contractAddress,
             contractInterface: new utils.Interface(abi),
         },
         'addressToAmountDonated',
         {
-            args: [userAddress]
+            args: [address]
         },
     )
 
-    const amountDonated: number = data?.toNumber()
+    const handleChange = () => {
+        read()
+        setAmount(data?.toNumber())
 
-    if (amountDonated)
-        if (loggedAddress == userAddress) return (
-            <p>You have donated {amountDonated} Wei.</p>
-        )
-        else return <p>{userAddress} has donated {amountDonated} Wei.</p>
-    return <div></div>
+    }
 
+
+    if (error) return (
+        <div>
+            <form>
+                <ReadAmountDonatedByAddressForm setAddress={setAddress} />
+            </form>
+            <Button color='secondary' variant='contained' onClick={handleChange}>Check!</Button>
+        </div>)
+
+    if (loading) return (
+        <div>
+            <form>
+                <ReadAmountDonatedByAddressForm setAddress={setAddress} />
+            </form>
+            <Button color='secondary' variant='contained' onClick={handleChange}>Check!</Button>
+            <p>Processing request...</p>
+        </div>)
+
+    return (
+        <div>
+            <form>
+                <ReadAmountDonatedByAddressForm setAddress={setAddress} />
+            </form>
+            <Button color='secondary' variant='contained' onClick={handleChange}>Check!</Button>
+            <p>{address} donated {amount} Wei.</p>
+        </div>
+    )
 }

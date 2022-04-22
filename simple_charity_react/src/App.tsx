@@ -10,7 +10,7 @@ import { _Provider } from './components/_Provider'
 import { ReadContract } from './components/ReadContract'
 import { DonateState } from "./components/Donate/DonateState"
 import { WithdrawState } from "./components/Withdraw/WithdrawState"
-import { ReadAmountDonatedByAddressState } from "./components/ReadAmountDonatedByAddress/ReadAmountDonatedByAddressState"
+import { ReadAmountDonatedByAddress } from "./components/ReadAmountDonatedByAddress/ReadAmountDonatedByAddress"
 
 function App() {
   return (
@@ -25,7 +25,7 @@ function App() {
         <ReadContract />
         <DonateState />
         <WithdrawState />
-        <ReadAmountDonatedByAddressState />
+        <ReadAmountDonatedByAddress />
 
       </Container>
 
