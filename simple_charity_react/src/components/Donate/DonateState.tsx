@@ -10,10 +10,9 @@ export const DonateState = () => {
 
     return (
         <div>
-            <form>
-                <DonateForm setAmount={setAmount} setGreetings={setGreetings} />
-                <Donate userAmount={Number(amount)} userGreetings={(greetings)} />
-            </form>
+            <DonateForm setAmount={setAmount} setGreetings={setGreetings} />
+            <Donate userAmount={Number(amount)} userGreetings={(greetings)} />
+
         </div>
     )
 }

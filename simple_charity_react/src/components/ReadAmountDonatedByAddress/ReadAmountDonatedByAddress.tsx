@@ -6,10 +6,10 @@ import { contractAddress } from '../ContractBalance'
 import { useContractRead } from 'wagmi'
 import { utils } from "ethers"
 import { Button } from "@material-ui/core"
+import LoadingButton from '@mui/lab/LoadingButton';
 
 export const ReadAmountDonatedByAddress = () => {
     const [address, setAddress] = useState()
-
     const [amount, setAmount] = useState()
 
     const { abi } = charityABI
@@ -30,29 +30,22 @@ export const ReadAmountDonatedByAddress = () => {
 
     }
 
-
     if (error) return (
         <div>
-            <form>
-                <ReadAmountDonatedByAddressForm setAddress={setAddress} />
-            </form>
+            <ReadAmountDonatedByAddressForm setAddress={setAddress} />
             <Button color='secondary' variant='contained' onClick={handleChange}>Check!</Button>
         </div>)
 
     if (loading) return (
         <div>
-            <form>
-                <ReadAmountDonatedByAddressForm setAddress={setAddress} />
-            </form>
-            <Button color='secondary' variant='contained' onClick={handleChange}>Check!</Button>
+            <ReadAmountDonatedByAddressForm setAddress={setAddress} />
+            <LoadingButton loading variant="contained"></LoadingButton>
             <p>Processing request...</p>
         </div>)
 
     return (
         <div>
-            <form>
-                <ReadAmountDonatedByAddressForm setAddress={setAddress} />
-            </form>
+            <ReadAmountDonatedByAddressForm setAddress={setAddress} />
             <Button color='secondary' variant='contained' onClick={handleChange}>Check!</Button>
             <p>{address} donated {amount} Wei.</p>
         </div>

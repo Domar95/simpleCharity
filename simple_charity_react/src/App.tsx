@@ -11,22 +11,23 @@ import { ReadContract } from './components/ReadContract'
 import { DonateState } from "./components/Donate/DonateState"
 import { WithdrawState } from "./components/Withdraw/WithdrawState"
 import { ReadAmountDonatedByAddress } from "./components/ReadAmountDonatedByAddress/ReadAmountDonatedByAddress"
+import { RetrieveDonate } from "./components/RetrieveDonate/RetrieveDonate"
+import "./components/myStyles.css"
+import { Functionalities } from "./components/Functionalities"
+import { Title } from "./components/Title"
 
 function App() {
   return (
     <Provider provider={_Provider} connectors={Connectors}>
       <Header />
 
-      <Container maxWidth="md">
-        <div> Simple Charity App</div>
+      <Container>
+        <Title />
         <ContractBalance />
         <UserBalance />
         <Network />
         <ReadContract />
-        <DonateState />
-        <WithdrawState />
-        <ReadAmountDonatedByAddress />
-
+        <Functionalities />
       </Container>
 
     </Provider>

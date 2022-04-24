@@ -1,5 +1,6 @@
 // Header.tsx
 import { makeStyles } from "@material-ui/core"
+import Typography from '@mui/material/Typography';
 import { WalletConnectButton } from './WalletConnectButton'
 
 
@@ -9,7 +10,6 @@ const useStyles = makeStyles((my_theme) => ({
         display: "flex",
         justifyContent: "flex-end",
         gap: my_theme.spacing(1),
-        background: '#b3e5fc',
     }
 }))
 

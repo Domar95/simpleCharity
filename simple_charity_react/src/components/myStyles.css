@@ -1,0 +1,14 @@
+/* myStyles.css */
+.title {
+    background: linear-gradient(to right, #30CFD0 10%, #330867 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.func_title {
+    background: linear-gradient(to right, #536976 10%, #292E49 100%);
+    ;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-align: center;
+}

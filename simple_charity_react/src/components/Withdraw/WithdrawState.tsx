@@ -17,14 +17,12 @@ export const WithdrawState = () => {
 
     if (isOwner) return (
         <div>
-            <form>
-                <WithdrawForm setAddress={setAddress} />
-                <Withdraw toAddress={(address)} />
-            </form>
+            <WithdrawForm setAddress={setAddress} />
+            <Withdraw toAddress={(address)} />
         </div>
     )
 
     return (
-        <div></div>
+        <h3>Log in as contract owner to unlock Withdraw feature</h3>
     )
 }
