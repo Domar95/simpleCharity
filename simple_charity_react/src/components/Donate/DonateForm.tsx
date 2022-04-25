@@ -1,23 +1,31 @@
 // DonateForm.tsx
+import FormControl from '@mui/material/FormControl';
+import OutlinedInput from '@mui/material/OutlinedInput';
+import InputLabel from '@mui/material/InputLabel';
+import InputAdornment from '@mui/material/InputAdornment';
+
 export const DonateForm = (props: any) => {
 
     return (
         <div>
-            <h2>Donate</h2>
-            <form>
-                <label>Donate: </label>
-                <input
-                    placeholder='Amount (in Wei)' onChange={event => props.setAmount(event.target.value)}
-                    type='number'
-                    min='1'
-                    required />
-                <p></p>
-                <label> Greetings: </label>
-                <input
-                    placeholder='Greetings' onChange={event => props.setGreetings(event.target.value)}
-                    type='text' />
-                <p></p>
-            </form>
+            <h2 className='func_title'>Donate</h2>
+            <FormControl fullWidth sx={{ m: 1 }}>
+                <InputLabel >Amount to donate</InputLabel>
+                <OutlinedInput
+                    onChange={event => props.setAmount(event.target.value)}
+                    startAdornment={<InputAdornment position="start">Wei</InputAdornment>}
+                    label="Amount to donate"
+                    type="number"
+                />
+
+            </FormControl>
+            <FormControl fullWidth sx={{ m: 1 }}>
+                <InputLabel >Greetings</InputLabel>
+                <OutlinedInput
+                    onChange={event => props.setGreetings(event.target.value)}
+                    label="Greetings"
+                />
+            </FormControl>
         </div>
     )
 }

@@ -7,6 +7,7 @@ import { utils } from "ethers"
 import { Button } from "@material-ui/core"
 import { RetrieveDonateForm } from "./RetrieveDonateForm"
 import LoadingButton from '@mui/lab/LoadingButton'
+import TextField from '@mui/material/TextField';
 
 export const RetrieveDonate = () => {
 
@@ -57,6 +58,6 @@ export const RetrieveDonate = () => {
             <p></p>
             <li>Greetings: {greetings}</li>
             <p></p>
-            <Button color='secondary' variant='contained' onClick={handleChange}>Check!</Button>
+            <Button className='btn-grad' color='secondary' variant='contained' onClick={handleChange}>Check!</Button>
         </div>)
 }

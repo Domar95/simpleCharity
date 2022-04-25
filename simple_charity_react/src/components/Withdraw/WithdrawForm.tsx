@@ -1,17 +1,20 @@
 // WithdrawForm.tsx
+import FormControl from '@mui/material/FormControl';
+import OutlinedInput from '@mui/material/OutlinedInput';
+import InputLabel from '@mui/material/InputLabel';
+
 export const WithdrawForm = (props: any) => {
 
     return (
         <div>
-            <h2>Withdraw</h2>
-            <form>
-                <label>Withdraw to address: </label>
-                <input
-                    placeholder='Address' onChange={event => props.setAddress(event.target.value)}
-                    type='text'
-                    required />
-                <p></p>
-            </form>
+            <h2 className='func_title'>Withdraw</h2>
+            <FormControl fullWidth sx={{ m: 1 }}>
+                <InputLabel >Address to withdraw the funds to</InputLabel>
+                <OutlinedInput
+                    onChange={event => props.setAddress(event.target.value)}
+                    label="Address to withdraw the funds to"
+                />
+            </FormControl>
         </div>
     )
 }

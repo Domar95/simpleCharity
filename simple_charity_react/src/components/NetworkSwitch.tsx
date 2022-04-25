@@ -2,7 +2,7 @@
 import { useNetwork } from 'wagmi'
 import { Button } from "@material-ui/core"
 
-export const Network = () => {
+export const NetworkSwitch = () => {
     const [{ data, error }, switchNetwork] = useNetwork()
 
     return (

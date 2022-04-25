@@ -14,25 +14,12 @@ export const UserBalance = () => {
         addressOrName: (userAddress),
     })
 
-    const { abi } = charityABI
-    const [{ data: contractData }, read] = useContractRead(
-        {
-            addressOrName: contractAddress,
-            contractInterface: new utils.Interface(abi),
-        },
-        'addressToAmountDonated',
-        {
-            args: [userAddress]
-        },
-    )
-
     if (loading) return <div>Fetching balance…</div>
     if (error) return <div>Error fetching balance </div>
     if (userAddress) return (
         <div>
             <p>You are logged with account: {userAddress}</p>
             <p>Your balance: {data?.formatted} {data?.symbol}</p>
-            <p>Your donate: {contractData?.toNumber()} Wei</p>
         </div>
     )
     return (<div>Not logged in</div>)

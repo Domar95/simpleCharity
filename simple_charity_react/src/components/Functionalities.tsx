@@ -11,9 +11,10 @@ import Grid from '@mui/material/Grid';
 export const Functionalities = () => {
 
     return (
-        <div><Box>
-            <h1 className='func_title'> Interact with a contract </h1>
-            <Box border={4}
+        <div><Box >
+            <h1 className='txt-funcs' text-align='center'> Interact with a contract </h1>
+            <Box className='func_box'
+                border={4}
                 borderLeft={4}
                 borderRight={4}
                 borderColor="black"

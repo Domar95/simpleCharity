@@ -26,7 +26,7 @@ export const Withdraw = ({ toAddress }: any) => {
 
     return (
         <div>
-            <Button color='secondary' variant='contained' onClick={() => write()}>Withdraw funds</Button>
+            <Button className='btn-grad' color='secondary' variant='contained' onClick={() => write()}>Withdraw</Button>
         </div>
 
 

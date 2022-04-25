@@ -26,7 +26,7 @@ export const Donate = ({ userAmount, userGreetings }: any) => {
         </div>)
 
     return (
-        <Button color='secondary' variant='contained' onClick={() => write()}>Donate</Button>
+        <Button className='btn-grad' color='secondary' variant='contained' onClick={() => write()}>Donate</Button>
 
     )
 }

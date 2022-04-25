@@ -23,6 +23,6 @@ export const WithdrawState = () => {
     )
 
     return (
-        <h3>Log in as contract owner to unlock Withdraw feature</h3>
+        <h3 className='txt-funcs'>Log in as contract owner to unlock Withdraw feature</h3>
     )
 }

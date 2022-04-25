@@ -7,8 +7,44 @@
 
 .func_title {
     background: linear-gradient(to right, #536976 10%, #292E49 100%);
-    ;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     text-align: center;
+}
+
+.func_box {
+    background: linear-gradient(315deg, #ffffff 0%, #f1f5f9 74%);
+}
+
+.btn-grad {
+    background-image: linear-gradient(to right, #77A1D3 0%, #79CBCA 51%, #77A1D3 100%)
+}
+
+.btn-grad {
+    transition: 0.5s;
+    background-size: 200% auto;
+    color: white;
+    box-shadow: 0 0 20px #eee;
+    border-radius: 10px;
+    display: block;
+}
+
+.btn-grad:hover {
+    background-position: right center;
+    color: #fff;
+    text-decoration: none;
+}
+
+.txt-funcs {
+    background: linear-gradient(to right, #314755 10%, #26a0da 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-align: center;
+}
+
+.txt-info {
+    background: linear-gradient(to right, #314755 10%, #26a0da 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-align: left;
 }

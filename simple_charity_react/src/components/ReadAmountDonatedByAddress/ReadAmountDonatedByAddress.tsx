@@ -33,7 +33,7 @@ export const ReadAmountDonatedByAddress = () => {
     if (error) return (
         <div>
             <ReadAmountDonatedByAddressForm setAddress={setAddress} />
-            <Button color='secondary' variant='contained' onClick={handleChange}>Check!</Button>
+            <Button className='btn-grad' color='secondary' variant='contained' onClick={handleChange}>Check!</Button>
         </div>)
 
     if (loading) return (
@@ -46,7 +46,7 @@ export const ReadAmountDonatedByAddress = () => {
     return (
         <div>
             <ReadAmountDonatedByAddressForm setAddress={setAddress} />
-            <Button color='secondary' variant='contained' onClick={handleChange}>Check!</Button>
+            <Button className='btn-grad' color='secondary' variant='contained' onClick={handleChange}>Check!</Button>
             <p>{address} donated {amount} Wei.</p>
         </div>
     )
