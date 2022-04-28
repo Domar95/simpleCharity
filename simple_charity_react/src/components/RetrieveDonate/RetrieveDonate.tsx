@@ -1,6 +1,6 @@
 // RetrieveDonate.tsx
 import charityABI from "../../chain-info/contracts/Charity.json"
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { contractAddress } from '../ContractBalance'
 import { useContractRead } from 'wagmi'
 import { utils } from "ethers"
@@ -12,10 +12,6 @@ import TextField from '@mui/material/TextField';
 export const RetrieveDonate = () => {
 
     const [index, setIndex] = useState()
-
-    const [address, setAddress] = useState()
-    const [amount, setAmount] = useState()
-    const [greetings, setGreetings] = useState()
 
     const { abi } = charityABI
     const [{ data, loading }, read] = useContractRead(
@@ -29,21 +25,22 @@ export const RetrieveDonate = () => {
         }
     )
 
-    const handleChange = () => {
+    const Refresh = () => {
         read()
-        setAddress(data?.[0])
-        setAmount(data?.[1].toNumber())
-        setGreetings(data?.[2])
     }
+
+    useEffect(() => {
+        read()
+    }, [index])
 
     if (loading) return (
         <div>
             <RetrieveDonateForm setIndex={setIndex} />
-            <li>Address: {address}</li>
+            <li>Address: {data?.[0]}</li>
             <p></p>
-            <li>Amount: {amount}</li>
+            <li>Amount: {data?.[1].toNumber()}</li>
             <p></p>
-            <li>Greetings: {greetings}</li>
+            <li>Greetings: {data?.[2]}</li>
             <p></p>
             <LoadingButton loading variant="contained"></LoadingButton>
             <p>Processing request...</p>
@@ -52,12 +49,12 @@ export const RetrieveDonate = () => {
     return (
         <div>
             <RetrieveDonateForm setIndex={setIndex} />
-            <li>Address: {address}</li>
+            <li>Address: {data?.[0]}</li>
             <p></p>
-            <li>Amount: {amount}</li>
+            <li>Amount: {data?.[1].toNumber()}</li>
             <p></p>
-            <li>Greetings: {greetings}</li>
+            <li>Greetings: {data?.[2]}</li>
             <p></p>
-            <Button className='btn-grad' color='secondary' variant='contained' onClick={handleChange}>Check!</Button>
+            <Button className='btn-grad' color='secondary' variant='contained' onClick={Refresh}>Refresh!</Button>
         </div>)
 }

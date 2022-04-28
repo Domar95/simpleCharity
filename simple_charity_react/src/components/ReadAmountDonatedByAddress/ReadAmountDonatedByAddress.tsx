@@ -1,6 +1,6 @@
 // ReadAmountDonatedByAddress.tsx
 import charityABI from "../../chain-info/contracts/Charity.json"
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { ReadAmountDonatedByAddressForm } from "./ReadAmountDonatedByAddressForm";
 import { contractAddress } from '../ContractBalance'
 import { useContractRead } from 'wagmi'
@@ -10,10 +10,9 @@ import LoadingButton from '@mui/lab/LoadingButton';
 
 export const ReadAmountDonatedByAddress = () => {
     const [address, setAddress] = useState()
-    const [amount, setAmount] = useState()
 
     const { abi } = charityABI
-    const [{ data, loading, error }, read] = useContractRead(
+    const [{ data, loading }, read] = useContractRead(
         {
             addressOrName: contractAddress,
             contractInterface: new utils.Interface(abi),
@@ -24,17 +23,14 @@ export const ReadAmountDonatedByAddress = () => {
         },
     )
 
-    const handleChange = () => {
+    const Refresh = () => {
         read()
-        setAmount(data?.toNumber())
-
     }
 
-    if (error) return (
-        <div>
-            <ReadAmountDonatedByAddressForm setAddress={setAddress} />
-            <Button className='btn-grad' color='secondary' variant='contained' onClick={handleChange}>Check!</Button>
-        </div>)
+    useEffect(() => {
+        read()
+    }, [address])
+
 
     if (loading) return (
         <div>
@@ -46,8 +42,13 @@ export const ReadAmountDonatedByAddress = () => {
     return (
         <div>
             <ReadAmountDonatedByAddressForm setAddress={setAddress} />
-            <Button className='btn-grad' color='secondary' variant='contained' onClick={handleChange}>Check!</Button>
-            <p>{address} donated {amount} Wei.</p>
+
+            <p></p>
+            <li>Address: {address}</li>
+            <p></p>
+            <li>Amount donated (Wei): {data?.toNumber()}</li>
+            <p></p>
+            <Button className='btn-grad' color='secondary' variant='contained' onClick={Refresh}>Refresh!</Button>
         </div>
     )
 }

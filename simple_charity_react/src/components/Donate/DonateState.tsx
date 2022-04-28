@@ -11,7 +11,7 @@ export const DonateState = () => {
     return (
         <div>
             <DonateForm setAmount={setAmount} setGreetings={setGreetings} />
-            <Donate userAmount={Number(amount)} userGreetings={(greetings)} />
+            <Donate userAmount={amount} userGreetings={(greetings)} />
 
         </div>
     )
