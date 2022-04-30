@@ -46,7 +46,7 @@ export const ReadAmountDonatedByAddress = () => {
             <p></p>
             <li>Address: {address}</li>
             <p></p>
-            <li>Amount donated (Wei): {data?.toNumber()}</li>
+            <li>Amount donated (Wei): {data?.toString()}</li>
             <p></p>
             <Button className='btn-grad' color='secondary' variant='contained' onClick={Refresh}>Refresh!</Button>
         </div>

@@ -38,7 +38,7 @@ export const RetrieveDonate = () => {
             <RetrieveDonateForm setIndex={setIndex} />
             <li>Address: {data?.[0]}</li>
             <p></p>
-            <li>Amount: {data?.[1].toNumber()}</li>
+            <li>Amount (Wei): {data?.[1].toString()}</li>
             <p></p>
             <li>Greetings: {data?.[2]}</li>
             <p></p>
@@ -51,7 +51,7 @@ export const RetrieveDonate = () => {
             <RetrieveDonateForm setIndex={setIndex} />
             <li>Address: {data?.[0]}</li>
             <p></p>
-            <li>Amount: {data?.[1].toNumber()}</li>
+            <li>Amount (Wei): {data?.[1].toString()}</li>
             <p></p>
             <li>Greetings: {data?.[2]}</li>
             <p></p>
