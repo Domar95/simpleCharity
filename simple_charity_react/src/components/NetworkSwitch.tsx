@@ -8,7 +8,7 @@ export const NetworkSwitch = () => {
     return (
         <>
             <div>
-                <p>{data.chain?.unsupported && data.chain?.name + ' is not supported, please switch to Ropsten'}</p>
+                <p>{data.chain?.unsupported && data.chain?.name + ' network is not supported, please switch to Ropsten'}</p>
             </div>
 
             {switchNetwork &&
